@@ -1,0 +1,15 @@
+{
+  "files.associations": {
+    "*.html": "html",
+    "*.md": "markdown"
+  },
+  "files.exclude": {
+    "_site": true,
+    ".jekyll-cache": true,
+    ".sass-cache": true
+  },
+  "emmet.includeLanguages": {
+    "liquid": "html"
+  },
+  "liquid.format.enable": true
+}

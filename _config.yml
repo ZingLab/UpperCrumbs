@@ -1,0 +1,39 @@
+# Site settings
+title: UpperCrumbs
+description: Luxury Real Estate Listings
+baseurl: "" # the subpath of your site, e.g. /blog
+url: "https://yourdomain.com" # Update with your actual domain
+
+# Build settings
+markdown: kramdown
+permalink: /:slug
+
+# Collections
+collections:
+  properties:
+    output: true
+    permalink: /:slug
+
+# Defaults
+defaults:
+  - scope:
+      path: ""
+      type: "properties"
+    values:
+      layout: "property"
+      css: "residential"
+  - scope:
+      path: ""
+    values:
+      layout: "default"
+
+# Exclude from processing
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - vendor/bundle/
+  - vendor/cache/
+  - vendor/gems/
+  - vendor/ruby/
+  - README.md

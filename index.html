@@ -1,0 +1,40 @@
+---
+layout: default
+title: Home
+---
+
+<section class="hero">
+    <div class="hero-content">
+        <h1>Exceptional Properties</h1>
+        <p>Curated Real Estate Excellence</p>
+    </div>
+</section>
+
+<section class="properties-section">
+    <div class="container">
+        <div class="section-header">
+            <h2>Featured Listings</h2>
+            <p>Discover Your Next Home</p>
+        </div>
+        
+        <div class="properties-grid">
+            {% for property in site.properties %}
+            <a href="{{ property.url | relative_url }}" class="property-card">
+                <div class="property-image">
+                    <img src="{{ property.featured_image }}" alt="{{ property.address }}">
+                    <span class="property-status">{{ property.status }}</span>
+                </div>
+                <div class="property-info">
+                    <div class="property-price">{{ property.price }}</div>
+                    <div class="property-address">{{ property.address }}</div>
+                    <div class="property-details">
+                        <span>{{ property.bedrooms }} Beds</span>
+                        <span>{{ property.bathrooms }} Baths</span>
+                        <span>{{ property.sqft }} sqft</span>
+                    </div>
+                </div>
+            </a>
+            {% endfor %}
+        </div>
+    </div>
+</section>
