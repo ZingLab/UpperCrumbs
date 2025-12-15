@@ -30,12 +30,6 @@
         {{ content }}
     </main>
 
-    <footer class="site-footer">
-        <div class="container">
-            <p>&copy; {{ 'now' | date: "%Y" }} {{ site.title }}. All rights reserved.</p>
-
-        <a class="zinglab" href="https://zinglab.com/?ref=uppercrumbs" target="_blank"><br>Site Managed by ZingLab.com</a>
-        </div>
-    </footer>
+{% include footer.html %}
 </body>
 </html>

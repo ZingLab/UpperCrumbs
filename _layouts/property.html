@@ -1,11 +1,247 @@
----
-layout: default
----
+<!DOCTYPE html>
+<html lang="en">
 
-<article class="property-detail">
-    {{ content }}
-</article>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% if page.title %}{{ page.title }} - {% endif %}{{ site.title }}</title>
+    <meta name="description" content="{{ page.description | default: site.description }}">
+    <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}">
+    <link rel="stylesheet" href="{{ '/assets/css/residential.css' | relative_url }}">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Montserrat:wght@300;400;500;600&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <header class="site-header">
+        <div class="container">
+            <a href="{{ '/' | relative_url }}" class="logo">{{ site.title }}</a>
+            <nav class="main-nav">
+                <div class="property-share">
+                    <div class="share-options" id="shareOptions" style="display: block;">
+                        <a class="share-btn"
+                            href="https://www.facebook.com/sharer/sharer.php?u={{ page.url | absolute_url | url_encode }}"
+                            target="_blank" rel="noopener">Facebook</a>
+                        <a class="share-btn"
+                            href="https://twitter.com/intent/tweet?url={{ page.url | absolute_url | url_encode }}&text={{ page.title | url_encode }}"
+                            target="_blank" rel="noopener">Twitter</a>
+                        <a class="share-btn"
+                            href="mailto:?subject={{ page.title | url_encode }}&body={{ page.description | url_encode }}%0A%0A{{ page.url | absolute_url | url_encode }}">Email</a>
+                        <a class="share-btn" onclick="copyLink()">Copy Link</a>
+                    </div>
+                </div>
+
+                <script>
+                    function shareProperty() {
+                        if (navigator.share) {
+                            navigator.share({
+                                title: '{{ page.title }}',
+                                text: '{{ page.description }}',
+                                url: window.location.href
+                            }).catch(err => {
+                                // User cancelled, show traditional options
+                                document.getElementById('shareOptions').style.display = 'block';
+                            });
+                        } else {
+                            // Show traditional share options
+                            const options = document.getElementById('shareOptions');
+                            options.style.display = options.style.display === 'none' ? 'block' : 'none';
+                        }
+                    }
+
+                    function copyLink() {
+                        navigator.clipboard.writeText(window.location.href).then(() => {
+                            alert('Link copied to clipboard!');
+                        });
+                    }
+                </script>
+            </nav>
+        </div>
+    </header>
+
+    <main class="site-content">
+        <article class="property-detail">
+            
 
 
-{{ include signup.html }}
-{{ include footer.html }}
+<div class="property-hero">
+    <img src="/assets/properties/{{ page.slug }}/{{ page.image_featured }}" alt="{{ page.address }} - {{ page.image_featured_title }}">
+    <div class="property-hero-overlay">
+        <div class="container">
+            <h1>{{ page.address }}</h1>
+            <div class="price">{{ page.price }}</div>
+        </div>
+    </div>
+</div>
+
+<div class="property-overview">
+    <div class="property-meta">
+        <div class="meta-item">
+            <div class="meta-label">Bedrooms</div>
+            <div class="meta-value">{{ page.bedrooms }}</div>
+        </div>
+        <div class="meta-item">
+            <div class="meta-label">Bathrooms</div>
+            <div class="meta-value">{{ page.bathrooms }}</div>
+        </div>
+        <div class="meta-item">
+            <div class="meta-label">Square Feet</div>
+            <div class="meta-value">{{ page.sqft }}</div>
+        </div>
+        <div class="meta-item">
+            <div class="meta-label">Year Built</div>
+            <div class="meta-value">{{ page.year }}</div>
+        </div>
+    </div>
+    <div class="property-description">
+        <h2>Property Description</h2>
+        <p>
+            {{ page.description_fulltext | newline_to_br }}
+        </p>
+    </div>
+</div>
+
+<div class="property-features">
+    <h2>Key Features</h2>
+    <div class="features-grid">
+        <!-- Feature items will be generated by JavaScript -->
+    </div>
+</div>
+
+<div class="property-gallery">
+    <h2>Photo Gallery</h2>
+    <div class="gallery-grid">
+        <!-- Gallery items will be generated by JavaScript -->
+    </div>
+</div>
+
+<div class="property-location">
+    <h2>Location</h2>
+    <div class="container">
+        <div class="location-map">
+            {{ page.map_embed }}
+        </div>
+    </div>
+</div>
+
+<div class="property-contact">
+    <h2>Interested in This Property?</h2>
+    <p>Contact us today to schedule a private showing of this exceptional residence.</p>
+    <a href="mailto:{{ page.agentemail }}?cc=uppercrumbs@zinglab.com&subject={{ page.slug }}&body=I%20would%20love%20to%20schedule%20a%20showing" class="contact-button">Request Showing</a>
+</div>
+
+{% include signup.html %}
+
+
+
+
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    // Define the image fields in the order you want them displayed
+    const imageFields = [
+        { key: 'featured', file: '{{ page.image_featured }}', title: '{{ page.image_featured_title }}' },
+        { key: 'exterior1', file: '{{ page.image_exterior1 }}', title: '{{ page.image_exterior1_title }}' },
+        { key: 'exterior2', file: '{{ page.image_exterior2 }}', title: '{{ page.image_exterior2_title }}' },
+        { key: 'exterior3', file: '{{ page.image_exterior3 }}', title: '{{ page.image_exterior3_title }}' },
+        { key: 'livingroom', file: '{{ page.image_livingroom }}', title: '{{ page.image_livingroom_title }}' },
+        { key: 'kitchen', file: '{{ page.image_kitchen }}', title: '{{ page.image_kitchen_title }}' },
+        { key: 'bedroom1', file: '{{ page.image_bedroom1 }}', title: '{{ page.image_bedroom1_title }}' },
+        { key: 'additional1', file: '{{ page.image_additional1 }}', title: '{{ page.image_additional1_title }}' },
+        { key: 'additional2', file: '{{ page.image_additional2 }}', title: '{{ page.image_additional2_title }}' },
+        { key: 'additional3', file: '{{ page.image_additional3 }}', title: '{{ page.image_additional3_title }}' }
+    ];
+
+    const galleryGrid = document.querySelector('.gallery-grid');
+    const slug = '{{ page.slug }}';
+
+    // Clear existing gallery items
+    galleryGrid.innerHTML = '';
+
+    // Generate gallery items for images that exist
+    imageFields.forEach(image => {
+        // Skip if filename is empty
+        if (image.file && image.file.trim() !== '') {
+            const galleryItem = document.createElement('div');
+            galleryItem.className = 'gallery-item';
+
+            const img = document.createElement('img');
+            img.src = `/assets/properties/${slug}/${image.file}`;
+            img.alt = image.title || image.key;
+
+            const caption = document.createElement('div');
+            caption.className = 'gallery-caption';
+            caption.textContent = image.title || image.key;
+
+            galleryItem.appendChild(img);
+            galleryItem.appendChild(caption);
+            galleryGrid.appendChild(galleryItem);
+        }
+    });
+
+    // Hide the entire gallery section if no images exist
+    if (galleryGrid.children.length === 0) {
+        document.querySelector('.property-gallery').style.display = 'none';
+    }
+});
+</script>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    // Define the feature fields
+    const featureFields = [
+        { title: '{{ page.feature1_title }}', description: '{{ page.feature1_description }}' },
+        { title: '{{ page.feature2_title }}', description: '{{ page.feature2_description }}' },
+        { title: '{{ page.feature3_title }}', description: '{{ page.feature3_description }}' },
+        { title: '{{ page.feature4_title }}', description: '{{ page.feature4_description }}' },
+        { title: '{{ page.feature5_title }}', description: '{{ page.feature5_description }}' },
+        { title: '{{ page.feature6_title }}', description: '{{ page.feature6_description }}' },
+        { title: '{{ page.feature7_title }}', description: '{{ page.feature7_description }}' },
+        { title: '{{ page.feature8_title }}', description: '{{ page.feature8_description }}' }
+    ];
+
+    const featuresGrid = document.querySelector('.features-grid');
+
+    // Clear existing feature items
+    featuresGrid.innerHTML = '';
+
+    // Generate feature items for features that exist
+    featureFields.forEach(feature => {
+        // Skip if title is empty
+        if (feature.title && feature.title.trim() !== '') {
+            const featureItem = document.createElement('div');
+            featureItem.className = 'feature-item';
+
+            const heading = document.createElement('h3');
+            heading.textContent = feature.title;
+
+            const paragraph = document.createElement('p');
+            paragraph.textContent = feature.description || '';
+
+            featureItem.appendChild(heading);
+            featureItem.appendChild(paragraph);
+            featuresGrid.appendChild(featureItem);
+        }
+    });
+
+    // Hide the entire features section if no features exist
+    if (featuresGrid.children.length === 0) {
+        document.querySelector('.property-features').style.display = 'none';
+    }
+});
+</script>
+
+
+        </article>
+    </main>
+
+
+    {% include footer.html %}
+
+</body>
+
+</html>

@@ -153,3 +153,9 @@ Update in `_layouts/default.html` Google Fonts link and CSS variables.
 ## License
 
 All rights reserved.
+
+## Setup
+
+bundle install
+bundle exec jekyll serve"
+http://localhost:4000"
