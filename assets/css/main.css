@@ -124,6 +124,43 @@ br {
     color: var(--color-secondary);
 }
 
+.property-share {
+    display: flex;
+    align-items: center;
+}
+
+.share-options {
+    display: flex !important;
+    gap: 10px;
+    align-items: center;
+}
+
+.share-btn {
+    padding: 8px 16px;
+    font-family: var(--font-body);
+    font-size: 11px;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: white;
+    background: var(--color-secondary);
+    text-decoration: none;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    transition: var(--transition-fast);
+    white-space: nowrap;
+}
+
+.share-btn:hover {
+    background: var(--color-accent);
+    color: white;
+}
+
+.share-btn::after {
+    display: none; /* Override the nav link underline effect */
+}
+
 /* Main Content */
 .site-content {
     margin-top: 90px;
