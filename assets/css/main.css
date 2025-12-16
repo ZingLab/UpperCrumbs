@@ -130,6 +130,11 @@ br {
     min-height: calc(100vh - 90px - 100px);
 }
 
+@media (max-width: 768px) {
+    .site-content {margin-top: 153px;}
+}
+
+
 /* Hero Section */
 .hero {
     height: 85vh;

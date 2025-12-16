@@ -71,6 +71,7 @@
     font-weight: 400;
     margin-bottom: 10px;
     letter-spacing: 1px;
+    filter: drop-shadow(0 0 .5rem black);
 }
 
 .property-hero-overlay .price {

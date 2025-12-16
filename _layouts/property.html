@@ -4,6 +4,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="{{ page.url | absolute_url }}">
+    <meta property="og:title" content="{{ page.title }}">
+    <meta property="og:description" content="{{ page.description }}">
+    <meta property="og:image" content="{{ site.url }}/assets/properties/{{ page.slug }}/{{ page.image_featured }}">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="{{ page.url | absolute_url }}">
+    <meta property="twitter:title" content="{{ page.title }}">
+    <meta property="twitter:description" content="{{ page.description }}">
+    <meta property="twitter:image" content="{{ site.url }}/assets/properties/{{ page.slug }}/{{ page.image_featured }}">
+
     <title>{% if page.title %}{{ page.title }} - {% endif %}{{ site.title }}</title>
     <meta name="description" content="{{ page.description | default: site.description }}">
     <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}">
@@ -24,35 +39,19 @@
                 <div class="property-share">
                     <div class="share-options" id="shareOptions" style="display: block;">
                         <a class="share-btn"
-                            href="https://www.facebook.com/sharer/sharer.php?u={{ page.url | absolute_url | url_encode }}"
+                            onclick="copyLink()"
+                            href="https://m.facebook.com/sharer.php?u={{ page.url | absolute_url | uri_escape }}"
                             target="_blank" rel="noopener">Facebook</a>
                         <a class="share-btn"
-                            href="https://twitter.com/intent/tweet?url={{ page.url | absolute_url | url_encode }}&text={{ page.title | url_encode }}"
+                            href="https://twitter.com/intent/tweet?url={{ page.url | absolute_url | uri_escape }}&text={{ page.title | uri_escape }}"
                             target="_blank" rel="noopener">Twitter</a>
                         <a class="share-btn"
-                            href="mailto:?subject={{ page.title | url_encode }}&body={{ page.description | url_encode }}%0A%0A{{ page.url | absolute_url | url_encode }}">Email</a>
+                            href="mailto:?subject={{ page.title | uri_escape }}&body={{ page.description | uri_escape }}%0A%0A{{ page.url | absolute_url | uri_escape }}">Email</a>
                         <a class="share-btn" onclick="copyLink()">Copy Link</a>
                     </div>
                 </div>
 
                 <script>
-                    function shareProperty() {
-                        if (navigator.share) {
-                            navigator.share({
-                                title: '{{ page.title }}',
-                                text: '{{ page.description }}',
-                                url: window.location.href
-                            }).catch(err => {
-                                // User cancelled, show traditional options
-                                document.getElementById('shareOptions').style.display = 'block';
-                            });
-                        } else {
-                            // Show traditional share options
-                            const options = document.getElementById('shareOptions');
-                            options.style.display = options.style.display === 'none' ? 'block' : 'none';
-                        }
-                    }
-
                     function copyLink() {
                         navigator.clipboard.writeText(window.location.href).then(() => {
                             alert('Link copied to clipboard!');

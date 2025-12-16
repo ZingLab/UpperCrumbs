@@ -2,7 +2,7 @@
 title: UpperCrumbs
 description: Luxury Real Estate Listings
 baseurl: "" # the subpath of your site, e.g. /blog
-url: "https://yourdomain.com" # Update with your actual domain
+url: "https://uppercrumbs.com" 
 
 # Build settings
 markdown: kramdown

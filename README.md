@@ -80,38 +80,6 @@ real-estate-site/
 
 5. Update the property content with gallery images and details
 
-### Deploying to GitHub Pages
-
-1. Create a new repository on GitHub
-
-2. Update `_config.yml`:
-   ```yaml
-   url: "https://yourusername.github.io"
-   baseurl: "/repository-name"  # Or "" if using custom domain
-   ```
-
-3. Push to GitHub:
-   ```bash
-   git init
-   git add .
-   git commit -m "Initial commit"
-   git branch -M main
-   git remote add origin https://github.com/yourusername/repository-name.git
-   git push -u origin main
-   ```
-
-4. Enable GitHub Pages in repository Settings > Pages > Source: main branch
-
-### Custom Domain Setup
-
-For subdomain routing (e.g., 101empireter.yourdomain.com):
-
-1. Add a CNAME file to the root with your domain
-2. Configure DNS with wildcard subdomain: `*.yourdomain.com` → GitHub Pages IP
-3. Update `_config.yml` with your domain
-
-Note: GitHub Pages doesn't natively support dynamic subdomains per post. For true subdomain routing, you'll need a custom server or use subdirectories (/101empireter).
-
 ## Customization
 
 ### Colors
@@ -154,7 +122,7 @@ Update in `_layouts/default.html` Google Fonts link and CSS variables.
 
 All rights reserved.
 
-## Setup
+## Testing
 
 bundle install
 bundle exec jekyll serve"
