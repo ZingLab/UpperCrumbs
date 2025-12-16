@@ -3,6 +3,11 @@ title: UpperCrumbs
 description: Luxury Real Estate Listings
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "https://uppercrumbs.com" 
+logo: /assets/logo.webp
+favicon: /favicon.ico
+author:
+  name: ZingLab LLC
+  email: hi@zinglab.com
 
 # Build settings
 markdown: kramdown
