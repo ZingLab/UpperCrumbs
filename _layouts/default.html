@@ -20,7 +20,6 @@
         <div class="container">
             <a href="{{ '/' | relative_url }}" class="logo">{{ site.title }}</a>
             <nav class="main-nav">
-                <a href="{{ '/' | relative_url }}">Portfolio</a>
                 <a href="#contact">Contact</a>
             </nav>
         </div>
@@ -29,6 +28,8 @@
     <main class="site-content">
         {{ content }}
     </main>
+
+{% include signup.html %}
 
 {% include footer.html %}
 </body>

@@ -5,27 +5,38 @@
 }
 
 /* Navigation and Share Buttons */
-.share-buttons {
+
+.property-share {
     display: flex;
-    gap: 10px;
+    align-items: center;
+}
+
+.share-options {
+    display: flex;
+    justify-content: flex-end;
+    text-align: right;
+    align-content: space-evenly;
     flex-wrap: wrap;
 }
 
 .share-btn {
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    text-decoration: none;
+    padding: 8px 16px;
+    font-family: var(--font-body);
+    font-size: 11px;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 1px;
     color: white;
-    font-weight: bold;
+    text-decoration: none;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    transition: var(--transition-fast);
+    white-space: nowrap;
+    min-width: 120px;
+    text-align: center;
 }
 
-.share-btn.facebook { background: #1877F2; }
-.share-btn.twitter { background: #1DA1F2; }
-.share-btn.linkedin { background: #0A66C2; }
-.share-btn.email { background: #666; }
-.share-btn.copy { background: #28a745; color: white; }
 
 /* Hero Image */
 .property-hero {

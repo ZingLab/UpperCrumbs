@@ -52,6 +52,7 @@ br {
     backdrop-filter: blur(10px);
     border-bottom: 1px solid var(--color-border);
     animation: slideDown 0.6s ease-out;
+    display: contents;
 }
 
 @keyframes slideDown {
@@ -91,6 +92,9 @@ br {
 .main-nav {
     display: flex;
     gap: 45px;
+    justify-content: stretch;
+    text-align: right;
+    align-content: space-between;
 }
 
 .main-nav a {
@@ -124,53 +128,11 @@ br {
     color: var(--color-secondary);
 }
 
-.property-share {
-    display: flex;
-    align-items: center;
-}
-
-.share-options {
-    display: flex !important;
-    gap: 10px;
-    align-items: center;
-}
-
-.share-btn {
-    padding: 8px 16px;
-    font-family: var(--font-body);
-    font-size: 11px;
-    font-weight: 500;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    color: white;
-    background: var(--color-secondary);
-    text-decoration: none;
-    border: none;
-    border-radius: 3px;
-    cursor: pointer;
-    transition: var(--transition-fast);
-    white-space: nowrap;
-}
-
-.share-btn:hover {
-    background: var(--color-accent);
-    color: white;
-}
-
-.share-btn::after {
-    display: none; /* Override the nav link underline effect */
-}
-
 /* Main Content */
 .site-content {
-    margin-top: 90px;
+    margin-top: auto;
     min-height: calc(100vh - 90px - 100px);
 }
-
-@media (max-width: 768px) {
-    .site-content {margin-top: 153px;}
-}
-
 
 /* Hero Section */
 .hero {
@@ -190,14 +152,18 @@ br {
     left: 0;
     right: 0;
     bottom: 0;
-    background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%238b7355' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
-    opacity: 0.4;
+    background-image: url("/assets/9511-kings-gate-court.jpg");
+    opacity: 0.8;
+    background-size: cover;
+    background-position: center;
 }
 
 .hero-content {
     text-align: center;
     z-index: 1;
     animation: fadeInUp 1s ease-out 0.3s both;
+    background: #ffffffa6;
+    padding: 2rem;
 }
 
 @keyframes fadeInUp {
@@ -350,6 +316,54 @@ br {
     align-items: center;
     gap: 6px;
 }
+
+
+/* Signup Section */
+.signup-contact {
+    max-width: 800px;
+    margin: 100px auto;
+    padding: 80px 40px;
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    text-align: center;
+    animation: fadeInUp 0.6s ease-out 0.8s both;
+}
+
+.signup-contact h2 {
+    font-family: var(--font-display);
+    font-size: 42px;
+    font-weight: 400;
+    color: var(--color-primary);
+    margin-bottom: 20px;
+    letter-spacing: 0.5px;
+}
+
+.signup-contact p {
+    font-size: 16px;
+    color: var(--color-text-light);
+    margin-bottom: 40px;
+    line-height: 1.6;
+}
+
+.signup-contact-button {
+    display: inline-block;
+    padding: 18px 50px;
+    background: var(--color-secondary);
+    color: white;
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    transition: var(--transition-smooth);
+    border: 2px solid var(--color-secondary);
+}
+
+.signup-contact-button:hover {
+    background: transparent;
+    color: var(--color-secondary);
+}
+
 
 /* Footer */
 .site-footer {
