@@ -27,7 +27,7 @@ description_fulltext: >
             family and guests.
         
 agentemail: contact@robertdallen.com
-image_featured: featured.png
+image_featured: featured.webp
 image_featured_title: Charming sunshine yellow with silver roof, butterfly garden, and retaining wall
 image_exterior1: 
 image_exterior1_title: 
@@ -35,17 +35,17 @@ image_exterior2:
 image_exterior2_title:
 image_exterior3:
 image_exterior3_title:
-image_livingroom: living-room.png
+image_livingroom: living-room.webp
 image_livingroom_title: Spacious Living Room with cathedral ceiling and Floor-to-Ceiling Windows
-image_kitchen: kitchen.png
+image_kitchen: kitchen.webp
 image_kitchen_title: Modern Kitchen
 image_bedroom1:
 image_bedroom1_title:
-image_additional1: mailbox.png
+image_additional1: mailbox.webp
 image_additional1_title: Mailbox
-image_additional2: birds.png
+image_additional2: birds.webp
 image_additional2_title: Friendly Wildlife
-image_additional3: laundry.png
+image_additional3: laundry.webp
 image_additional3_title: Laundry Room
 feature1_title: Nature Preserve Back Yard
 feature1_description: Back yard opens to a protected Florida Scrubjay habitat which is permanently unbuildable
