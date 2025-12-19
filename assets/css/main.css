@@ -35,6 +35,11 @@ br {
     margin-bottom: 1em;
 }
 
+hr {
+    width: 40%;
+    margin: auto;
+}
+
 .container {
     max-width: 1400px;
     margin: 0 auto;
@@ -72,17 +77,23 @@ br {
     align-items: center;
     padding-top: 25px;
     padding-bottom: 25px;
+    flex-wrap: wrap;
 }
+
+@media (max-width: 768px) {
+    span.logo-container {
+    margin: auto;
+    }
+}
+
 
 .logo {
     font-family: var(--font-display);
     font-size: 28px;
     font-weight: 500;
     color: var(--color-primary);
-    text-decoration: none;
     letter-spacing: 1px;
     transition: var(--transition-fast);
-    padding-right: 1em;
 }
 
 .logo:hover {
@@ -357,6 +368,7 @@ br {
     letter-spacing: 2px;
     transition: var(--transition-smooth);
     border: 2px solid var(--color-secondary);
+    margin: 1px;
 }
 
 .signup-contact-button:hover {

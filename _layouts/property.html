@@ -34,7 +34,9 @@
 <body>
     <header class="site-header">
         <div class="container">
-            <a href="{{ '/' | relative_url }}" class="logo">{{ site.title }}</a>
+            <span class="logo-container">
+                <a href="{{ '/' | relative_url }}" class="logo">{{ site.title }}</a>
+            </span>
             <nav class="main-nav">
                 <div class="property-share">
                     <div class="share-options" id="shareOptions">
@@ -135,6 +137,7 @@
     <p>Contact us today to schedule a private showing of this exceptional residence.</p>
     <a href="mailto:{{ page.agentemail }}?cc=uppercrumbs@zinglab.com&subject={{ page.slug }}&body=I%20would%20love%20to%20schedule%20a%20showing" class="contact-button">Request Showing</a>
 </div>
+<hr>
 
 {% include signup.html %}
 

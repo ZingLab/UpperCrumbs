@@ -13,8 +13,8 @@
 
 .share-options {
     display: flex;
-    justify-content: flex-end;
-    text-align: right;
+    justify-content: center;
+    text-align: center;
     align-content: space-evenly;
     flex-wrap: wrap;
 }
