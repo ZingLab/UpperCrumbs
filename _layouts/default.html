@@ -3,17 +3,40 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="{{ page.url | absolute_url }}">
+    <meta property="og:title" content="{{ page.title | default: site.title }}">
+    <meta property="og:description" content="{{ page.description | default: site.description }}">
+    <meta property="og:image" content="index.jpg">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="{{ page.url | absolute_url }}">
+    <meta property="twitter:title" content="{{ page.title | default: site.title }}">
+    <meta property="twitter:description" content="{{ page.description | default: site.description }}">
+    <meta property="twitter:image" content="index.jpg">
+
     <title>{% if page.title %}{{ page.title }} - {% endif %}{{ site.title }}</title>
+    <link rel="icon" href="{{ 'favicon.ico' | relative_url }}">
     <meta name="description" content="{{ page.description | default: site.description }}">
-    <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}">
-    {% if page.css == 'residential' %}
-    <link rel="stylesheet" href="{{ '/assets/css/residential.css' | relative_url }}">
-    {% elsif page.css == 'commercial' %}
-    <link rel="stylesheet" href="{{ '/assets/css/commercial.css' | relative_url }}">
-    {% endif %}
+    <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}">    
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-82JLDE33NG"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-82JLDE33NG');
+    </script>
+
 </head>
 <body>
     <header class="site-header">
